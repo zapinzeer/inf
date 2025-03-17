@@ -1,0 +1,269 @@
+   ▄▄                                             
+ ▀███                                             
+   ██                                             
+   ██  ▄█▀██▄ ▀██▀   ▀██▀           ▄█    ██▀▀█▄  
+   ██ ██   ██   ██   ▄█             ▀▀   ███  ▀██ 
+   ██  ▄█████    ██ ▄█                        ▄██ 
+   ██ ██   ██     ███               ▄▄      ▀▀██▄ 
+ ▄████▄████▀██▄    █                ██         ██ 
+                                        ███  ▄█▀  
+                                         █████▀      
+jebo lelicu mrtvackinja mala tamo daje kecevica umesto dvojke ma mrs
+ako pita koj su ovo zadaci jbg samo lazi
+[SVAKE TACKE SU GRANICE IZMEDJU ZADATAKA]
+....
+broj_reci_po_prici = [271, 354, 296, 301, 333, 326, 285, 298, 327, 316, 287, 314]
+
+ukupan_broj_reci = sum(broj_reci_po_prici)
+
+prosecan_broj_reci = ukupan_broj_reci / len(broj_reci_po_prici)
+
+print("Prosečan broj reči po priči je:", prosecan_broj_reci)
+
+..
+
+procenat_petica = 25 / 100
+procenat_trojki = 12.5 / 100
+
+for broj_ocena in range(1, 10):
+    if (broj_ocena * procenat_petica).is_integer() and (broj_ocena * procenat_trojki).is_integer():
+        print(f"Петар има {broj_ocena} оцена.")
+        print(f"Петар има {int(broj_ocena * procenat_petica)} петица и {int(broj_ocena * procenat_trojki)} тројки.")
+        break
+
+...
+
+broj_ocena = 8
+broj_petica = int(broj_ocena * procenat_petica)
+broj_trojki = int(broj_ocena * procenat_trojki)
+broj_cetvorki = broj_ocena - broj_petica - broj_trojki
+
+prosek = (broj_petica * 5 + broj_trojki * 3 + broj_cetvorki * 4) / broj_ocena
+
+print(f"Петар има просек {prosek} из информатике.")
+
+....
+#ezgg -Lav
+import matplotlib.pyplot as plt
+
+china_population = 1420062022
+india_population = 1368737513
+china_growth_rate = 0.0035
+india_growth_rate = 0.0108
+
+years = list(range(2020, 2030))
+
+china_population_projection = [china_population]
+india_population_projection = [india_population]
+
+for year in years[1:]:
+    china_population += china_population * china_growth_rate
+    india_population += india_population * india_growth_rate
+    china_population_projection.append(china_population)
+    india_population_projection.append(india_population)
+
+plt.figure(figsize=(10, 6))
+plt.plot(years, china_population_projection, label='Кина', marker='o')
+plt.plot(years, india_population_projection, label='Индија', marker='o')
+
+plt.title('Пројекција броја становника Кине и Индије (2020–2029)', fontsize=14)
+plt.xlabel('Година', fontsize=12)
+plt.ylabel('Број становника', fontsize=12)
+plt.legend(fontsize=12)
+plt.grid(True)
+
+plt.show()
+
+.....
+
+#ezgg -Lav
+percentage_fives = 0.25
+percentage_threes = 0.125
+
+total_percentage = percentage_fives + percentage_threes
+
+total_grades = int(1 / total_percentage)
+
+fives = int(percentage_fives * total_grades)
+threes = int(percentage_threes * total_grades)
+
+fours = total_grades - fives - threes
+
+average = (fives * 5 + threes * 3 + fours * 4) / total_grades
+
+print(f"Укупно оцена: {total_grades}")
+print(f"Петице: {fives}, Тројке: {threes}, Четворке: {fours}")
+print(f"Просек оцена: {average:.2f}")
+
+...
+
+import matplotlib.pyplot as plt
+ #ezgg -Lav
+dates = ['5.1.2008', '12.1.2008']
+market_share = [
+    [51.17, 48.83],  # 5.1.2008
+    [92.53, 7.47]     # 12.1.2008
+]
+labels = ['Blu-ray Disc', 'HD-DVD']
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+ax1.pie(market_share[0], labels=labels, autopct='%1.2f%%', startangle=90)
+ax1.set_title(f'Тржишно учешће na {dates[0]}')
+
+ax2.pie(market_share[1], labels=labels, autopct='%1.2f%%', startangle=90)
+ax2.set_title(f'Тржишно учешће na {dates[1]}')
+
+plt.tight_layout()
+plt.show()
+
+......
+
+import pandas as pd
+
+# ezgg -Lav
+proizvodi_data = [
+    ["Cipele", 5, 17, 3, 11, 9],
+    ["Kosulja", 8, 6, 7, 4, 0],
+    ["Kais", 4, 1, 3, 5, 1],
+    ["Pantalone", 4, 2, 6, 4, 5],
+    ["Carape (par)", 8, 9, 7, 4, 9],
+    ["Kravata", 1, 0, 3, 2, 4]
+]
+
+df_sales = pd.DataFrame(
+    proizvodi_data, 
+    columns=["Proizvod", "PJ1", "PJ2", "PJ3", "PJ4", "PJ5"]
+).set_index("Proizvod")
+
+cene_data = [
+    ["Cipele", 11250],
+    ["Kosulja", 6500],
+    ["Kais", 4750],
+    ["Pantalone", 2500],
+    ["Carape (par)", 750],
+    ["Kravata", 3500]
+]
+
+df_prices = pd.DataFrame(cene_data, columns=["Proizvod", "Cena"]).set_index("Proizvod")
+
+total_sold = df_sales.sum(axis=1)
+print("Укупно продато:")
+print(total_sold.to_string(), "\n")
+
+revenue_per_product = total_sold * df_prices["Cena"]
+print("Зарада по производима:")
+print(revenue_per_product.to_string(), "\n")
+
+revenue_per_pj = df_sales.mul(df_prices["Cena"], axis=0).sum()
+print("Зарада по пословним јединицама:")
+print(revenue_per_pj.to_string())
+.....
+
+import pandas as pd
+
+data = {
+    "Žanre": ["Komedija", "Horor", "Naučna fantastika", "Avanture", "Istorijski", "Romantični"],
+    "8-1": [4, 1, 10, 4, 1, 11],
+    "8-2": [3, 0, 7, 3, 0, 10],
+    "8-3": [5, 2, 9, 4, 2, 7],
+    "8-4": [2, 1, 8, 2, 0, 9],
+    "8-5": [3, 6, 9, 2, 0, 8]
+}
+df = pd.DataFrame(data).set_index("Žanr")
+
+print("Гласови по жанру:")
+print(df.sum(axis=1))
+
+print("\nВалидни гласови по одељењу:")
+print(df.sum(axis=0))
+
+#  ista jebena stvar
+total_students = df.sum().sum()
+print(f"\nУкупно ученика: {total_students}")
+....
+# pet velikih bumova... boom boom boom boom i booomZX
+import matplotlib.pyplot as plt
+
+labels = ['Шећер', 'Сок од лимуна', 'Вода']
+sizes = [1/6 * 100, 1/6 * 100, 4/6 * 100]
+explode = (0.1, 0, 0)  # ovo je da secer izgleda specijalan 
+colors = ['gold', 'yellowgreen', 'lightblue']
+
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+        autopct='%1.1f%%', shadow=True, startangle=140)
+plt.title('Састав савршене лимунаде')
+plt.axis('equal')  # da bude jednako valjda nzm jbg
+plt.show()
+....
+import matplotlib.pyplot as plt
+
+kontinenti = ['Азија', 'Африка', 'Европа', 'Јужна Америка', 'Северна Америка', 'Океанија']
+stanovnistvo = [
+    4_584_807_072,
+    1_320_038_716,
+    743_102_600,
+    658_305_557,
+    366_496_802,
+    41_826_176
+]
+
+ukupno = sum(stanovnistvo)
+
+# opa ovde mi trebala matematika al mi nije trebalo x=2y+2... pitam se koga refrencujem
+procenti = [(broj / ukupno) * 100 for broj in stanovnistvo]
+
+plt.figure(figsize=(10, 10))
+plt.pie(procenti, labels=kontinenti, autopct='%1.1f%%', startangle=140, 
+        colors=['gold', 'lightcoral', 'lightgreen', 'lightskyblue', 'violet', 'orange'])
+plt.title('Расподела светског становништва по континентима (%)')
+plt.axis('equal')  
+
+plt.show()
+......
+import matplotlib.pyplot as plt
+from collections import Counter
+
+import numpy as np
+np.random.seed(42)
+dnevnik = np.random.randint(1, 8, size=120).tolist()  # Пример података
+
+ukupno_kisnih = len(dnevnik)
+print(f"(а) Укупно кишних дана: {ukupno_kisnih}")
+
+procenat_kisnih = (ukupno_kisnih / 365) * 100
+print(f"\n(б) Проценат кишних дана: {procenat_kisnih:.1f}%")
+
+broj_po_danu = Counter(dnevnik)
+dani = ['Понедељак', 'Уторак', 'Среда', 'Четвртак', 'Петак', 'Субота', 'Недеља']
+vrednosti = [broj_po_danu[i+1] for i in range(7)]  # Индекси 1-7
+
+print("\n(в) Кишни дани по дану:")
+for dan, broj in zip(dani, vrednosti):
+    print(f"{dan}: {broj}")
+
+kisni_ponedeljci = broj_po_danu[1]
+procenat_pon = (kisni_ponedeljci / 53) * 100
+print(f"\n(г) Проценат кишних понедељака: {procenat_pon:.1f}%")
+
+najkisniji_dan = vrednosti.index(max(vrednosti))  
+explode = [0.1 if i == najkisniji_dan else 0 for i in range(7)]
+
+plt.figure(figsize=(10, 8))
+plt.pie(vrednosti, labels=dani, autopct='%1.1f%%', explode=explode,
+        shadow=True, startangle=90, colors=plt.cm.tab20.colors)
+plt.title('Расподела кишних дана по дану у недељи')
+plt.axis('equal')
+plt.show()
+...
+⠀⠀⠀⠀⢀⣤⣴⠶⠶⠷⠶⠶⣦⣤⡀⠀⠀⠀⠀
+⠀⠀⢠⡶⠟⠉⠀⠀⠀⠀⠀⠀⠀⠉⠻⢶⡄⠀⠀
+⠀⣴⡟⣥⣤⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⠈⢻⣦⠀
+⢰⡟⠀⠻⠿⠿⠟⠁⣼⣿⣿⣿⣷⡀⠀⠀⠀⢻⡆
+⣿⠃⠀⠀⠀⠀⠀⣼⣿⡏⠙⣿⣿⣇⠀⠀⠀⠘⣿
+⣿⡄⠀⠀⠀⠀⣴⣿⠟⠃⠀⠙⣿⣿⡆⠀⠀⢠⣿
+⠹⣧⠀⠀⠀⢸⡟⠁⠀⠀⠀⠀⠘⢿⣷⡀⠀⣼⠏
+⠀⠻⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⠃⣴⠟⠀
+⠀⠀⠙⢷⣤⣀⠀⠀⠀⠀⠀⠀⠀⣀⣤⡾⠋⠀⠀
+⠀⠀⠀⠀⠈⠛⠻⠶⠶⠶⠶⠶⠟⠛⠁⠀⠀⠀⠀
