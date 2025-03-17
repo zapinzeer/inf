@@ -1,2 +1,3 @@
 # inf
-ide kec iz biologije
+boom ide kec iz biologije
+skoro pa svi zadaci jupitera onog mrtvog 
