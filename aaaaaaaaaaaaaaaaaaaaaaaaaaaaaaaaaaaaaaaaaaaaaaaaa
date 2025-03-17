@@ -227,7 +227,7 @@ from collections import Counter
 
 import numpy as np
 np.random.seed(42)
-dnevnik = np.random.randint(1, 8, size=120).tolist()  # Пример података
+dnevnik = np.random.randint(1, 8, size=120).tolist()  
 
 ukupno_kisnih = len(dnevnik)
 print(f"(а) Укупно кишних дана: {ukupno_kisnih}")
@@ -237,7 +237,7 @@ print(f"\n(б) Проценат кишних дана: {procenat_kisnih:.1f}%")
 
 broj_po_danu = Counter(dnevnik)
 dani = ['Понедељак', 'Уторак', 'Среда', 'Четвртак', 'Петак', 'Субота', 'Недеља']
-vrednosti = [broj_po_danu[i+1] for i in range(7)]  # Индекси 1-7
+vrednosti = [broj_po_danu[i+1] for i in range(7)]  
 
 print("\n(в) Кишни дани по дану:")
 for dan, broj in zip(dani, vrednosti):
