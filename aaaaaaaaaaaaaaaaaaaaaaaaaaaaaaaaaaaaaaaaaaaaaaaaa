@@ -302,6 +302,45 @@ df = pd.concat([df, nova_vrsta], ignore_index=True)
 
 print(df)
 ...
+df_transponovan = df.T
+
+df_transponovan.columns = df_transponovan.iloc[0].astype(str) # Dodato .astype(str)
+
+df_transponovan = df_transponovan[1:]
+
+df_transponovan = df_transponovan.reset_index(drop=True)
+
+
+def izracunaj_bmi(masa_kg, visina_cm):
+    visina_m = visina_cm / 100
+    if visina_m > 0:
+        bmi = masa_kg / (visina_m ** 2)
+        return bmi
+    else:
+        return None
+
+bmi_vrednosti = []
+for index, row in df_transponovan.iterrows():
+    masa_kolona = 'masaKG'  # Ili stvarni naziv kolone nakon transponovanja
+    visina_kolona = 'visinaCM' # Ili stvarni naziv kolone nakon transponovanja
+
+    if masa_kolona in row and visina_kolona in row:
+        masa = float(row[masa_kolona])
+        visina = float(row[visina_kolona])
+        bmi = izracunaj_bmi(masa, visina)
+        bmi_vrednosti.append(bmi)
+    else:
+        print(f"Upozorenje: Kolone '{masa_kolona}' ili '{visina_kolona}' ne postoje u redu.")
+        bmi_vrednosti.append(None) # Ili neku drugu odgovarajuću vrednost
+
+df_transponovan['BMI'] = bmi_vrednosti
+
+print("Transponovana tabela sa BMI:")
+print(df_transponovan)
+
+df_transponovan.to_csv('BMI.csv', encoding='utf-8-sig', index=False)
+print("\nPodaci su sačuvani u fajl BMI.csv")
+....
 ⠀⠀⠀⠀⢀⣤⣴⠶⠶⠷⠶⠶⣦⣤⡀⠀⠀⠀⠀
 ⠀⠀⢠⡶⠟⠉⠀⠀⠀⠀⠀⠀⠀⠉⠻⢶⡄⠀⠀
 ⠀⣴⡟⣥⣤⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⠈⢻⣦⠀
