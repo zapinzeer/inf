@@ -286,6 +286,22 @@ df['Просечно'] = prosek
 
 df.to_csv('Troskovi.csv', encoding='utf-8-sig')
 ....
+import pandas as pd
+
+# e jebiga
+data = {'Царство': ['Животиње', 'Биљке', 'Гљиве', 'Протисти', 'Монере'],
+        'Број врста': [1400000, 290000, 100000, 200000, 10000]}
+
+df = pd.DataFrame(data)
+
+ukupно_врста = df['Број врста'].sum()
+
+nova_vrsta = pd.DataFrame({'Царство': ['Укупно'], 'Број врста': [ukupно_врста]})
+
+df = pd.concat([df, nova_vrsta], ignore_index=True)
+
+print(df)
+...
 ⠀⠀⠀⠀⢀⣤⣴⠶⠶⠷⠶⠶⣦⣤⡀⠀⠀⠀⠀
 ⠀⠀⢠⡶⠟⠉⠀⠀⠀⠀⠀⠀⠀⠉⠻⢶⡄⠀⠀
 ⠀⣴⡟⣥⣤⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⠈⢻⣦⠀
